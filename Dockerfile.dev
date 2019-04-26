@@ -1,0 +1,14 @@
+#base image
+FROM node:alpine
+
+#working directory
+WORKDIR '/app'
+
+#configuration & installing all dependencies
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+#Startup command
+CMD ["npm" , "run" , "start"]
